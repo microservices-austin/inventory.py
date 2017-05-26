@@ -1,0 +1,23 @@
+{
+    "_comment": "service configuration",
+    "name": "inventory-service",
+    "image": "inventory/service",
+    "driver": "crossbar",
+    "transport_host": "ws://events-server:8080/ws",
+    "pub_options": {
+        "acknowledge": true,
+        "retain": true
+    },
+    "publish_topic": {
+        "topic": "inventory",
+        "timeout": 20,
+        "reply_in": 0
+    },
+    "subscribed_topics": [
+        "inventory"
+    ],
+    "sub_options": {
+        "get_retained": false
+    }
+}
+
