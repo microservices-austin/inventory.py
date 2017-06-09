@@ -26,6 +26,10 @@ node() {
           echo 'build docker container'            
        }
 
+       stage('Store Image'){
+	  echo 'store image'
+       }
+
        stage('Deploy'){
           echo 'Push to Repo'
        }
