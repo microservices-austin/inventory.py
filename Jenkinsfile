@@ -2,7 +2,7 @@
 
 node() {
     currentBuild.result = "SUCCESS"
-    env.PATH = env.PATH:~/pytools/bin:~/.local/bin
+    env.PATH = "~/pytools/bin:~/.local/bin:${env.PATH}"
 
     try {
        stage('Checkout'){
