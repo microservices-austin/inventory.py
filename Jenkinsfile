@@ -30,8 +30,16 @@ node() {
 	  echo 'store image'
        }
 
+       stage('Run DB Migration') {
+
+       }
+
        stage('Deploy'){
           echo 'Push to Repo'
+       }
+
+       stage('Run Integration Tests'){
+
        }
 
        stage('Cleanup'){
