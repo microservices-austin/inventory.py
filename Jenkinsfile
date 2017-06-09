@@ -2,11 +2,14 @@
 
 node() {
     currentBuild.result = "SUCCESS"
-    env.PATH = "~/pytools/bin:~/.local/bin:${env.PATH}"
 
     try {
        stage('Checkout'){
           checkout scm
+       }
+
+       stage('Setup environment'){
+          env.PATH = "~/pytools/bin:~/.local/bin:${env.PATH}"
        }
 
        stage('Install deps'){
