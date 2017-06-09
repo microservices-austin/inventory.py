@@ -10,10 +10,14 @@ node() {
 
        stage('Setup environment'){
           env.PATH = "~/pytools/bin:~/.local/bin:${env.PATH}"
+	  
        }
 
        stage('Install deps'){
-          sh 'pip install -r requirements.txt'
+          sh """
+	    . /var/jenkins_home/venv/bin/activate
+	    pip install -r requirements.txt
+	  """
        }
 
        stage('Test'){
