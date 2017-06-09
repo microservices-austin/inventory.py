@@ -1,24 +1,33 @@
 #!groovy
 
-node('node') {
+node() {
     currentBuild.result = "SUCCESS"
 
     try {
        stage('Checkout'){
           checkout scm
        }
+
+       stage('Install deps'){
+	  sh 'virtualenv venv'
+          sh 'source venv/bin/activate'
+          sh 'pip install -r requirements.txt'
+       }
+
        stage('Test'){
-         env.NODE_ENV = "test"
-         print "Environment will be : ${env.NODE_ENV}"
+          echo 'run our tests'
        }
+
        stage('Build Docker'){
-           echo 'build docker container'            
+          echo 'build docker container'            
        }
+
        stage('Deploy'){
-         echo 'Push to Repo'
+          echo 'Push to Repo'
        }
+
        stage('Cleanup'){
-         echo 'prune and cleanup'
+          echo 'prune and cleanup'
        }
     }
     catch (err) {
