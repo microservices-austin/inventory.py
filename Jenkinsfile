@@ -13,8 +13,6 @@ node() {
        }
 
        stage('Install deps'){
-	  sh 'virtualenv venv'
-          sh 'source venv/bin/activate'
           sh 'pip install -r requirements.txt'
        }
 
