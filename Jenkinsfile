@@ -33,7 +33,10 @@ node() {
        }
 
        stage('Store Image'){
-	  echo 'store image'
+	  sh """
+            docker tag inventory/service:latest 059888644488.dkr.ecr.us-east-1.amazonaws.com/inventory/service:1.0
+            docker push 059888644488.dkr.ecr.us-east-1.amazonaws.com/inventory/service:1.0
+          """
        }
 
        stage('Run DB Migration') {
