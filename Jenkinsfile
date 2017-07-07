@@ -21,6 +21,7 @@ node() {
 
        stage('Test'){
 	  sh """
+	    . /var/lib/jenkins/venv/bin/activate
 	    nosetests -svv 
           """
        }
