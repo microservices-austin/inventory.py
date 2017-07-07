@@ -26,7 +26,9 @@ node() {
        }
 
        stage('Build Docker'){
-          echo 'build docker container'            
+	  sh """
+            docker build -t inventory/service .
+          """
        }
 
        stage('Store Image'){
