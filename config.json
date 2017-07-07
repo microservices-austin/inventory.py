@@ -6,7 +6,7 @@
     "transport_host": "ws://events-server:8080/ws",
     "pub_options": {
         "acknowledge": true,
-        "retain": true
+        "retain": false
     },
     "publish_topic": {
         "topic": "inventory",
@@ -14,10 +14,11 @@
         "reply_in": 0
     },
     "subscribed_topics": [
-        "inventory"
+        "orders"
     ],
     "sub_options": {
         "get_retained": false
-    }
+    },
+    "replay_events": false
 }
 

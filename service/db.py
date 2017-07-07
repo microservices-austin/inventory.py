@@ -12,10 +12,3 @@ def connect_db():
     conn = psycopg2.connect(dbname='inventory', user=DB_USER, password=DB_PASS, host=DB_HOST)
     cur = conn.cursor()
     return cur
-
-def persist_event(quantity, event):
-    """
-    Save event
-    """
-    pass
-
