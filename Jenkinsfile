@@ -10,7 +10,6 @@ node() {
 
        stage('Setup environment'){
           env.PATH = "~/pytools/bin:~/.local/bin:${env.PATH}"
-	  
        }
 
        stage('Install deps'){
@@ -21,8 +20,9 @@ node() {
        }
 
        stage('Test'){
-          echo 'run our tests'
-	  echo 'test'
+	  sh """
+	    nosetests -svv 
+          """
        }
 
        stage('Build Docker'){
