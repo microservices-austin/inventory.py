@@ -22,6 +22,7 @@ node() {
 
        stage('Test'){
           echo 'run our tests'
+	  echo 'test'
        }
 
        stage('Build Docker'){
