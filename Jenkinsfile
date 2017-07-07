@@ -15,7 +15,7 @@ node() {
 
        stage('Install deps'){
           sh """
-	    . /var/jenkins_home/venv/bin/activate
+	    . /var/lib/jenkins/venv/bin/activate
 	    pip install -r requirements.txt
 	  """
        }

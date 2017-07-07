@@ -20,6 +20,10 @@ def event_handler(event, session=None):
 
     if event.name == 'TransferInventory':
         handle_transfer_inventory(event, session)
+    elif event.name == 'AdjustInventory':
+        handle_adjust_inventory(event, session)
+    elif event.name == 'PickInventory':
+        handle_pick_inventory(event, session)
 
 
 if __name__ == '__main__':
